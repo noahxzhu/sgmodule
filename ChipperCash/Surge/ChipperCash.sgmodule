@@ -1,0 +1,13 @@
+#!name=ChipperCash
+#!desc=ChipperCash
+#!category=Chipper
+
+[MITM]
+hostname = %APPEND% api.chippercash.com, compliance.chippercash.com
+
+[Script]
+# show USDX deposits
+showUSDXDeposits=type=http-response,pattern=^https:\/\/api\.chippercash\.com\/v1\/users\/accounts\/configuration, script-path=https://raw.githubusercontent.com/noahxzhu/sgmodule/refs/heads/main/ChipperCash/Surge/js/showUSDXDeposits.js, requires-body=true
+
+# skip identity verification
+skipIdentityVerification=type=http-response,pattern=https://compliance.chippercash.com/account/configuration, script-path=https://raw.githubusercontent.com/noahxzhu/sgmodule/refs/heads/main/ChipperCash/Surge/js/skipIdentityVerification.js, requires-body=true
